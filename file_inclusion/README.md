@@ -15,3 +15,7 @@
 ## Examples of where this vulnerability can happen
 
 The most common place you will find LFI Vulnerabilities is within templating engines. This is because websites want to keep a large majority of the website the same when navigating between pages, such as the header, navigation bar, and footer. Without dynamic page generation, every page on the server would need to be modified when changes are made to any of those sections. This is why you will often see a parameter like /index.php?page=about. Under the hood, index.php will probably pull header.php, about.php, and footer.php. Since you control the about portion of the request, it may be possible to have the webserver grab other files! Another common place is within languages. If you see ?lang=en; then the website will grab files from the /en/ directory.
+
+## See Also
+
+	https://book.hacktricks.xyz/pentesting-web/file-inclusion
