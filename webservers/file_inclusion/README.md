@@ -2,19 +2,25 @@
 
 ## Overview
 
-	File Inclusion is a common web application vulnerability, which can be easily overlooked as part of the application functionality. Server-side languages such as PHP or JSP can dynamically include external scripts, reducing the script's overall size and simplifying the code. If this inclusion logic isn't implemented properly, attackers can include both local and remote files, potentially leading to source code disclosure, sensitive data exposure, and code execution under certain conditions. There are two types of file inclusion, namely Local File Inclusion (LFI) and Remote File Inclusion (RFI).
+File Inclusion is a common web application vulnerability, which can be easily overlooked as part of the application functionality. Server-side languages such as PHP or JSP can dynamically include external scripts, reducing the script's overall size and simplifying the code. 
+If this inclusion logic isn't implemented properly, attackers can include both local and remote files, potentially leading to source code disclosure, sensitive data exposure, and code execution under certain conditions. 
+There are two types of file inclusion, namely Local File Inclusion (LFI) and Remote File Inclusion (RFI).
 
 ## LFI vs RFI
 
-	Almost any Remote File Inclusion (RFI) can also be a Local File Inclusion (LFI); however, any LFI may not be an RFI. This is primarily because of two reasons:
+Almost any Remote File Inclusion (RFI) can also be a Local File Inclusion (LFI); however, any LFI may not be an RFI. This is primarily because of two reasons:
 
-	You may only control a portion of the filename and not the entire protocol wrapper (ex: http://, ftp://, https://)
+You may only control a portion of the filename and not the entire protocol wrapper (ex: http://, ftp://, https://)
 
-	The configuration may prevent RFI all together. For example, in PHP, by setting allow_url_include to 0, it will not be possible to use remote sources within the include() statement.
+The configuration may prevent RFI all together. For example, in PHP, by setting allow_url_include to 0, it will not be possible to use remote sources within the include() statement.
 
 ## Examples of where this vulnerability can happen
 
 The most common place you will find LFI Vulnerabilities is within templating engines. This is because websites want to keep a large majority of the website the same when navigating between pages, such as the header, navigation bar, and footer. Without dynamic page generation, every page on the server would need to be modified when changes are made to any of those sections. This is why you will often see a parameter like /index.php?page=about. Under the hood, index.php will probably pull header.php, about.php, and footer.php. Since you control the about portion of the request, it may be possible to have the webserver grab other files! Another common place is within languages. If you see ?lang=en; then the website will grab files from the /en/ directory.
+
+## Local File Inclusion into Remote Code Execution
+
+LFI can lead to Remote Code Execution (RCE) under some conditions, resulting in a complete server compromise. One common way is to poison log files, which are modified based on requests to the webserver.
 
 ## See Also
 
