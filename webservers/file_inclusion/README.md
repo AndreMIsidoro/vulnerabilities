@@ -6,6 +6,16 @@ File Inclusion is a common web application vulnerability, which can be easily ov
 If this inclusion logic isn't implemented properly, attackers can include both local and remote files, potentially leading to source code disclosure, sensitive data exposure, and code execution under certain conditions. 
 There are two types of file inclusion, namely Local File Inclusion (LFI) and Remote File Inclusion (RFI).
 
+LFI or Local File Inclusion occurs when an attacker is able to get a website to include a file that was not
+intended to be an option for this application. A common example is when an application uses the path to a
+file as input. If the application treats this input as trusted, and the required sanitary checks are not
+performed on this input, then the attacker can exploit it by using the ../ string in the inputted file name
+and eventually view sensitive files in the local file system. In some limited cases, an LFI can lead to code
+execution as well.
+
+RFI or Remote File Inclusion is similar to LFI but in this case it is possible for an attacker to load a remote
+file on the host using protocols like HTTP, FTP etc.
+
 ## LFI vs RFI
 
 Almost any Remote File Inclusion (RFI) can also be a Local File Inclusion (LFI); however, any LFI may not be an RFI. This is primarily because of two reasons:
