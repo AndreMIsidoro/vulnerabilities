@@ -32,9 +32,11 @@ The most common place you will find LFI Vulnerabilities is within templating eng
 
 LFI can lead to Remote Code Execution (RCE) under some conditions, resulting in a complete server compromise. One common way is to poison log files, which are modified based on requests to the webserver.
 
-## After finding a LFI vulnerability
+## After finding a PHP LFI vulnerability
 
 After finding a LFI, we can try to exploit it by getting the NETNTLMv2 hash by using the tool Responder to load aan SMB URL and then brute force it with john.
+
+We can do this because even if allow_url_include and allow_url_fopen are set to "Off", PHP will not prevent the loading of SMB URLs.
 
 ## See Also
 
