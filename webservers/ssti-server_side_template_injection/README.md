@@ -11,3 +11,5 @@ execution on the affected server.
 
 This attack is very common on Node.js websites and there is a good possibility that a Template Engine is
 being used to reflect the email that the user inputs in the contact field.
+
+https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
