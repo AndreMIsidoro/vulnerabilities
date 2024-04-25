@@ -17,3 +17,5 @@ The data is included in dynamic content that is sent to a web user without being
 ## Relevant Information
 
 https://owasp.org/www-community/attacks/xss/
+
+https://book.hacktricks.xyz/pentesting-web/xss-cross-site-scripting
