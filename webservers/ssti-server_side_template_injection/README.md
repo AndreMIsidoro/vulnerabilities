@@ -16,3 +16,12 @@ being used to reflect the email that the user inputs in the contact field.
 ## Relevant Information
 
 https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
+
+
+## Tips
+
+Remember to check the programming language that the server or its framework is running
+
+Encode the input and the payload in url
+
+If there is input validation, try sending some filler but valid input, followed by a special character like ; or \n and then the payload.
