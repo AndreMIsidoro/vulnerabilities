@@ -21,6 +21,8 @@ The data is included in dynamic content that is sent to a web user without being
 
 ## Relevant Information
 
+https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection
+
 https://owasp.org/www-community/attacks/xss/
 
 https://book.hacktricks.xyz/pentesting-web/xss-cross-site-scripting
