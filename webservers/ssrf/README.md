@@ -34,6 +34,12 @@ Here, the server will fetch the contents of the /admin URL and return it to the 
 
 Now of course, the attacker could just visit the /admin URL directly. But the administrative functionality is ordinarily accessible only to suitable authenticated users. So an attacker who simply visits the URL directly won't see anything of interest. However, when the request to the /admin URL comes from the local machine itself, the normal access controls are bypassed. The application grants full access to the administrative functionality, because the request appears to originate from a trusted location
 
+## How to Identify
+
+### When we can input an url to a request
+
+Trying to pass 127.0.0.1, and see how the response/server behaves
+
 
 ## Sources
 
