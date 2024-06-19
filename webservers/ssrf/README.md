@@ -38,7 +38,7 @@ Now of course, the attacker could just visit the /admin URL directly. But the ad
 
 ### When we can input an url to a request
 
-Trying to pass 127.0.0.1, and see how the response/server behaves
+Trying to pass 127.0.0.1, and see how the response/server behaves. If the behaviour is the same try bruteforcing with a port 127.0.0.1:$port
 
 
 ## Sources
