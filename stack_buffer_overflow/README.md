@@ -16,3 +16,9 @@ After identifying which bytes overwrote the EIP register we can now use the comp
 	pattern_offset.rb <bytes>
 
 Where do we redirect the execution flow now that we control the EIP register? Part of our buffer can contain the code (or shellcode) we would like to have executed. Our next steps will involve examining and preparing the psace for this shellcode, and figuring out a way to redirect code execution to it.
+
+
+## Checking for bad characters
+
+Thera maybe some characters that should be used in the buffer, return address or shellcode.
+To find these characters just find a script that sends all possible characters from 0x00 to 0xff as part of the buffer and see how they are dealt by the application. If any of the characters don't appear, they were truncated and should not be used.
