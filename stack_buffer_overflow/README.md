@@ -1,5 +1,23 @@
 # Stack Buffer Overflow
 
+## Process Memory
+
+
+![Process Memory](images/process_memory.PNG)
+
+## Registry Pointers
+
+	ESP (Extended Stack Pointer) - Will point to the next available byte on the stack
+	EBP (Extended Base Pointer) - Will point to the base of the stack.
+	EIP (Extended Instruction Pointer) - Will point to the memory address (the first byte) of the next instruction to be executed.
+
+## Stack
+
+By default, the stack grows downward in memory, so newer values are placed at lower memory addresses.
+
+
+![Stack Memory](images/stack_memory.PNG)
+
 ## Controlling the EIP
 
 Getting control of the EIP register is a crucial step of exploit development. There are two common ways to do this:
