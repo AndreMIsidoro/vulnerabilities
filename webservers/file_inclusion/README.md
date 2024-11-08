@@ -38,6 +38,12 @@ After finding a LFI, we can try to exploit it by getting the NETNTLMv2 hash by u
 
 We can do this because even if allow_url_include and allow_url_fopen are set to "Off", PHP will not prevent the loading of SMB URLs.
 
+## Interesting files to disclose - Linux
+
+/proc/self/cmdline
+
+	contains the command-line arguments used to start the currently running process. Usually will containt the current active folder.
+
 ## See Also
 
 	https://book.hacktricks.xyz/pentesting-web/file-inclusion
