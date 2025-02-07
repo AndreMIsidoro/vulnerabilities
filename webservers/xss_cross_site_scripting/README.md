@@ -13,6 +13,8 @@ Cross-Site Scripting (XSS) attacks occur when:
 Data enters a Web application through an untrusted source, most frequently a web request.
 The data is included in dynamic content that is sent to a web user without being validated for malicious content.
 
+
+
 ## Common Payloads
 
 Steal cookies
@@ -43,6 +45,10 @@ This fetches the page that onyl the admin has access to, converts it to text, ur
 	}
 	then we pass the cmd arg in the request:
 	<url>?cmd=whoami
+
+## Tips
+
+If the username might be seen by an admin account, try to register a username as a xss payload
 
 
 ## Relevant Information
