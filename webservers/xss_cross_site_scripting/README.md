@@ -13,7 +13,9 @@ Cross-Site Scripting (XSS) attacks occur when:
 Data enters a Web application through an untrusted source, most frequently a web request.
 The data is included in dynamic content that is sent to a web user without being validated for malicious content.
 
+## Prevention
 
+If the http header "httpOnly" is set to True, this prevents xss
 
 ## Common Payloads
 
